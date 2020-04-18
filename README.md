@@ -1,9 +1,9 @@
 ## docker_play
-Generic repository for docker related sample projects
+Generic repository for docker related sample ,
 
 # Find Vendor Name for a MAC Address
 This is a sample Docker to find Vendor Name from a MAC Address. The Docker contains Ubuntu base and a python script to query url https://macaddress.io for vendor details and show the vendor name if found.
-The python script is using standard python libraries “requests” for url query and “re” for mac-address validation.
+The python script is using standard python libraries “requests” for url query, “re” for mac-address validation and "argparse" for command line arguments.
 
 ## Getting Started
 This sample docker image creation had done under Ubuntu 16.06 LTS server. 
@@ -40,7 +40,7 @@ sudo docker images
 
 Create the python script, run and verify the output
 ```
-python org_find_for_mac.py 08:CC:68:11:11:11
+python org_find_for_mac.py -k <auth-api--key> -m 08:CC:68:11:11:11
 ```
 **Output:**
 Company Name for mac 08:CC:68:11:11:11 is Cisco Systems, Inc
@@ -58,12 +58,12 @@ sudo docker images
 ```
 ## Docker run
 ```
-sudo docker run <docker image id> <mac-address>
-sudo docker run -ti <docker build repo name> <mac-address>
+sudo docker run <docker image id> -k <auth-api-key> -m <mac-address>
+sudo docker run -ti <docker build repo name> -k <auth api key> -m <mac-address>
 ```
 Sample run:
 ```
-sudo docker run edfb602ba3c7 08:CC:68:11:11:11
+sudo docker run edfb602ba3c7 -k <auth-api-key> -m 08:CC:68:11:11:11
 ```
 ## Output
   Company Name for mac 08:CC:68:11:11:11 is Cisco Systems, Inc
